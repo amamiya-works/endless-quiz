@@ -119,7 +119,7 @@ Vercel側から秘密のトークンを用いてSupabase Management APIを叩く
 ## ローカル起動
 
 ```bash
-git clone https://github.com/amamiya-1125/endless-quiz.git
+git clone https://github.com/amamiya-works/endless-quiz.git
 cd endless-quiz
 npm install
 cp .env.example .env.local
