@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-subtle: var(--subtle);
+}
+
+/*
+  The default theme logic in Tailwind v4 allows using these variables automatically 
+  if they are defined in :root.
+*/
+
+:root {
+  /* Light Mode - Clean Indigo/White */
+  --background: #f8fafc; /* Slate 50 */
+  --foreground: #1e293b; /* Slate 800 */
+  
+  --primary: #4f46e5; /* Indigo 600 */
+  --primary-foreground: #ffffff;
+  
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  
+  --accent: #06b6d4; /* Cyan 500 */
+  --accent-foreground: #ffffff;
+  
+  --subtle: #94a3b8; /* Slate 400 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode - Deep Slate + Neon */
+    --background: #0f172a; /* Slate 900 */
+    --foreground: #f1f5f9; /* Slate 100 */
+    
+    --primary: #818cf8; /* Indigo 400 */
+    --primary-foreground: #0f172a;
+    
+    --card: #1e293b; /* Slate 800 */
+    --card-foreground: #f1f5f9;
+    
+    --accent: #22d3ee; /* Cyan 400 (Neon) */
+    --accent-foreground: #0f172a;
+    
+    --subtle: #64748b; /* Slate 500 */
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), sans-serif;
+}

@@ -1,0 +1,1324 @@
+﻿====================
+FILE: \.env.local
+====================
+
+# 「Data API」メニューからコピーしたURL
+NEXT_PUBLIC_SUPABASE_URL=https://behxerttikctsieobiqd.supabase.co
+
+# 「Publishable key」からコピーした sb_publishable_... の鍵
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_1yfDrT9Wp2CMITbgA09n9Q_ODC31rVJ
+
+
+
+====================
+FILE: \eslint.config.mjs
+====================
+
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+
+
+
+
+====================
+FILE: \package.json
+====================
+
+{
+  "name": "sidereal-astro",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.89.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.562.0",
+    "next": "16.1.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+
+
+
+
+====================
+FILE: \postcss.config.mjs
+====================
+
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+
+
+
+
+====================
+FILE: \tsconfig.json
+====================
+
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+
+
+
+
+====================
+FILE: \public\file.svg
+====================
+
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+
+
+
+====================
+FILE: \public\globe.svg
+====================
+
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+
+
+
+====================
+FILE: \public\vercel.svg
+====================
+
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+
+
+
+====================
+FILE: \public\window.svg
+====================
+
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+
+
+
+====================
+FILE: \src\middleware.ts
+====================
+
+import { createServerClient, type CookieOptions } from '@supabase/ssr'
+import { NextResponse, type NextRequest } from 'next/server'
+
+export async function middleware(request: NextRequest) {
+    let response = NextResponse.next({
+        request: {
+            headers: request.headers,
+        },
+    })
+
+    const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+            cookies: {
+                get(name: string) {
+                    return request.cookies.get(name)?.value
+                },
+                set(name: string, value: string, options: CookieOptions) {
+                    request.cookies.set({ name, value, ...options })
+                    response = NextResponse.next({
+                        request: { headers: request.headers },
+                    })
+                    response.cookies.set({ name, value, ...options })
+                },
+                remove(name: string, options: CookieOptions) {
+                    request.cookies.set({ name, value: '', ...options })
+                    response = NextResponse.next({
+                        request: { headers: request.headers },
+                    })
+                    response.cookies.set({ name, value: '', ...options })
+                },
+            },
+        }
+    )
+
+    // ログイン状態を確認
+    const { data: { session } } = await supabase.auth.getSession()
+
+    // ガード：未ログインで /admin 内（ログイン画面以外）にアクセスしたらリダイレクト
+    if (!session && request.nextUrl.pathname.startsWith('/admin') && request.nextUrl.pathname !== '/admin') {
+        return NextResponse.redirect(new URL('/admin', request.url))
+    }
+
+    return response
+}
+
+export const config = {
+    matcher: ['/admin/:path*'],
+}
+
+
+
+====================
+FILE: \src\app\globals.css
+====================
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-subtle: var(--subtle);
+}
+
+/*
+  The default theme logic in Tailwind v4 allows using these variables automatically 
+  if they are defined in :root.
+*/
+
+:root {
+  /* Light Mode - Clean Indigo/White */
+  --background: #f8fafc; /* Slate 50 */
+  --foreground: #1e293b; /* Slate 800 */
+  
+  --primary: #4f46e5; /* Indigo 600 */
+  --primary-foreground: #ffffff;
+  
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  
+  --accent: #06b6d4; /* Cyan 500 */
+  --accent-foreground: #ffffff;
+  
+  --subtle: #94a3b8; /* Slate 400 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode - Deep Slate + Neon */
+    --background: #0f172a; /* Slate 900 */
+    --foreground: #f1f5f9; /* Slate 100 */
+    
+    --primary: #818cf8; /* Indigo 400 */
+    --primary-foreground: #0f172a;
+    
+    --card: #1e293b; /* Slate 800 */
+    --card-foreground: #f1f5f9;
+    
+    --accent: #22d3ee; /* Cyan 400 (Neon) */
+    --accent-foreground: #0f172a;
+    
+    --subtle: #64748b; /* Slate 500 */
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), sans-serif;
+}
+
+
+
+
+====================
+FILE: \src\app\page.tsx
+====================
+
+"use client"
+
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/Button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
+import { BrainCircuit, Settings } from "lucide-react"
+
+export default function Home() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-br from-background via-subtle/5 to-primary/5">
+
+      {/* Admin Link */}
+      <div className="absolute top-4 right-4">
+        <Link href="/admin">
+          <Button variant="ghost" size="sm" className="opacity-50 hover:opacity-100">
+            <Settings className="w-4 h-4 mr-2" />
+            管理者
+          </Button>
+        </Link>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Card className="w-full max-w-md border-none shadow-2xl bg-card/80 backdrop-blur-sm">
+          <CardHeader className="text-center space-y-4 pt-12 pb-8">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, type: "spring" }}
+              className="mx-auto bg-primary/10 p-4 rounded-full w-24 h-24 flex items-center justify-center text-primary"
+            >
+              <BrainCircuit className="w-12 h-12" />
+            </motion.div>
+            <CardTitle className="text-4xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Endless Quiz
+            </CardTitle>
+            <p className="text-subtle text-lg">
+              無限に広がる知識の旅へ
+            </p>
+          </CardHeader>
+
+          <CardContent className="flex flex-col gap-4 pb-12 px-8">
+            <Link href="/quiz" className="w-full">
+              <Button size="xl" className="w-full text-xl shadow-primary/30 h-16 rounded-2xl">
+                クイズを開始
+              </Button>
+            </Link>
+
+            <p className="text-center text-sm text-subtle/60 mt-4">
+              ログイン不要・完全無料
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </div>
+  )
+}
+
+
+
+
+====================
+FILE: \src\app\admin\page.tsx
+====================
+
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/Button"
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/Card"
+import { Lock, Loader2 } from "lucide-react"
+import { supabase } from "@/lib/supabase" // Step 1で作ったクライアント
+import Link from "next/link"
+
+export default function AdminLogin() {
+    const [loading, setLoading] = useState(false)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [errorMsg, setErrorMsg] = useState("")
+
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setLoading(true)
+        setErrorMsg("")
+
+        try {
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            })
+
+            if (error) {
+                setErrorMsg("ログインに失敗しました。パスワードを確認してください。")
+                setLoading(false)
+                return
+            }
+
+            if (data?.session) {
+                // 成功！クッキーが保存されるのを待ってから、強制リロードでダッシュボードへ
+                setLoading(false)
+                window.location.href = "/admin/dashboard"
+            }
+        } catch (err) {
+            setErrorMsg("エラーが発生しました。")
+            setLoading(false)
+        }
+    }
+
+    return (
+        <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+            <Card className="w-full max-w-sm shadow-xl">
+                <CardHeader className="text-center">
+                    <div className="mx-auto bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-2 text-primary">
+                        <Lock className="w-8 h-8" />
+                    </div>
+                    <CardTitle className="text-2xl font-bold">管理者ログイン</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <form onSubmit={handleLogin} className="space-y-4">
+                        {errorMsg && <div className="text-xs text-red-500 bg-red-50 p-2 rounded text-center">{errorMsg}</div>}
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 border rounded" placeholder="Email" required />
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-2 border rounded" placeholder="Password" required />
+                        <Button type="submit" className="w-full" disabled={loading}>
+                            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "ログイン"}
+                        </Button>
+                    </form>
+                </CardContent>
+                <CardFooter className="justify-center">
+                    <Link href="/" className="text-sm text-subtle hover:underline">← アプリに戻る</Link>
+                </CardFooter>
+            </Card>
+        </div>
+    )
+}
+
+
+
+====================
+FILE: \src\app\admin\dashboard\page.tsx
+====================
+
+"use client"
+
+import { useState, useEffect, useCallback } from "react"
+import Link from "next/link"
+import { Button } from "@/components/ui/Button"
+import { Card, CardContent } from "@/components/ui/Card"
+import { Plus, Edit2, Trash2, LogOut, Loader2 } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { supabase } from "@/lib/supabase"
+import type { Database } from "@/types/supabase"
+
+type Quiz = Database['public']['Tables']['quizzes']['Row']
+
+export default function AdminDashboard() {
+    const router = useRouter()
+    const [quizzes, setQuizzes] = useState<Quiz[]>([])
+    const [loading, setLoading] = useState(true)
+
+    // クイズ一覧を取得する関数
+    const fetchQuizzes = useCallback(async () => {
+        setLoading(true)
+        try {
+            // 作成日時が新しい順に全件取得
+            const { data, error } = await supabase
+                .from('quizzes')
+                .select('*')
+                .order('created_at', { ascending: false })
+
+            if (error) throw error
+            setQuizzes(data || [])
+        } catch (error) {
+            console.error("Error fetching quizzes:", error)
+            alert("データの取得に失敗しました")
+        } finally {
+            setLoading(false)
+        }
+    }, [])
+
+    useEffect(() => {
+        fetchQuizzes()
+    }, [fetchQuizzes])
+
+    // クイズを削除する関数
+    const handleDelete = async (id: string) => {
+        if (!confirm("本当にこの問題を削除しますか？")) return
+
+        try {
+            const { error } = await supabase
+                .from('quizzes')
+                .delete()
+                .eq('id', id)
+
+            if (error) throw error
+            
+            // 削除に成功したら一覧を更新
+            setQuizzes(prev => prev.filter(q => q.id !== id))
+            alert("削除しました")
+        } catch (error) {
+            console.error("Error deleting quiz:", error)
+            alert("削除に失敗しました")
+        }
+    }
+
+    return (
+        <div className="min-h-screen bg-background p-4 md:p-8 pb-24">
+            <div className="max-w-4xl mx-auto space-y-6">
+                <div className="flex justify-between items-center bg-card p-4 rounded-2xl shadow-sm border border-subtle/10 sticky top-4 z-10 backdrop-blur-md bg-card/80">
+                    <h1 className="text-xl font-bold">問題管理 ({quizzes.length}問)</h1>
+                    <Button variant="ghost" size="sm" onClick={() => router.push("/")} className="text-subtle">
+                        <LogOut className="w-4 h-4" />
+                    </Button>
+                </div>
+
+                {loading ? (
+                    <div className="flex justify-center py-12">
+                        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                    </div>
+                ) : (
+                    <div className="grid gap-4">
+                        {quizzes.map((quiz) => (
+                            <Card key={quiz.id} className="border-l-4 border-l-primary shadow-sm hover:shadow-md transition-shadow">
+                                <CardContent className="p-4 flex items-center justify-between gap-4">
+                                    <div className="flex-1 min-w-0">
+                                        <p className="font-medium text-foreground truncate">
+                                            {quiz.question_text}
+                                        </p>
+                                        <div className="flex gap-2 mt-1">
+                                            <span className="text-xs text-subtle truncate">
+                                                正解: {quiz.choice_1}
+                                            </span>
+                                            {!quiz.is_published && (
+                                                <span className="text-[10px] bg-subtle/10 text-subtle px-1.5 rounded uppercase font-bold">
+                                                    Draft
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <Link href={`/admin/editor/${quiz.id}`}>
+                                            <Button variant="outline" size="sm" className="h-9 w-9 p-0 rounded-full">
+                                                <Edit2 className="w-4 h-4" />
+                                            </Button>
+                                        </Link>
+                                        <Button 
+                                            variant="ghost" 
+                                            size="sm" 
+                                            onClick={() => handleDelete(quiz.id)}
+                                            className="h-9 w-9 p-0 rounded-full text-red-600 hover:bg-red-50 hover:text-red-700"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                )}
+
+                {/* Floating Action Button */}
+                <Link href="/admin/editor/new">
+                    <Button
+                        className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg shadow-primary/40 p-0"
+                        size="xl"
+                    >
+                        <Plus className="w-8 h-8" />
+                    </Button>
+                </Link>
+            </div>
+        </div>
+    )
+}
+
+
+
+====================
+FILE: \src\app\admin\editor\[id]\page.tsx
+====================
+
+[Binary File]
+
+
+
+====================
+FILE: \src\app\quiz\page.tsx
+====================
+
+"use client"
+
+import { useState, useEffect, useCallback } from "react"
+import { useRouter } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
+import { Button } from "@/components/ui/Button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card"
+import { supabase } from "@/lib/supabase"
+import { Loader2, CheckCircle2, XCircle, ArrowRight, Flag, Trophy, Coffee, AlertCircle } from "lucide-react" // アイコン追加
+import type { Database } from "@/types/supabase"
+import { cn } from "@/lib/utils"
+
+type Quiz = Database['public']['Tables']['quizzes']['Row']
+
+interface Choice {
+    text: string
+    isCorrect: boolean
+    originalIndex: number
+}
+
+export default function QuizPage() {
+    const router = useRouter()
+
+    const [stats, setStats] = useState({ correct: 0, total: 0 })
+    const [currentQuiz, setCurrentQuiz] = useState<Quiz | null>(null)
+    const [choices, setChoices] = useState<Choice[]>([])
+    const [selectedChoiceIndex, setSelectedChoiceIndex] = useState<number | null>(null)
+    const [isAnswered, setIsAnswered] = useState(false)
+    const [loading, setLoading] = useState(true)
+    const [playedQuizIds, setPlayedQuizIds] = useState<string[]>([])
+    const [isOutOfQuestions, setIsOutOfQuestions] = useState(false)
+    
+    // 【新機能】エラーの種類を管理するステート
+    const [errorType, setErrorType] = useState<"none" | "paused" | "other">("none")
+
+    const fetchNewQuestion = useCallback(async () => {
+        setLoading(true)
+        setIsAnswered(false)
+        setSelectedChoiceIndex(null)
+        setErrorType("none") // リセット
+
+        try {
+            const { data, error } = await supabase
+                .from('quizzes')
+                .select('*')
+                .eq('is_published', true)
+
+            if (error) throw error
+            if (!data || data.length === 0) throw new Error("No quizzes found")
+
+            const availableQuizzes = (data as Quiz[]).filter(q => !playedQuizIds.includes(q.id))
+
+            if (availableQuizzes.length === 0) {
+                setIsOutOfQuestions(true)
+                setLoading(false)
+                return
+            }
+
+            const randomIndex = Math.floor(Math.random() * availableQuizzes.length)
+            const quiz = availableQuizzes[randomIndex] as Quiz
+            
+            setCurrentQuiz(quiz)
+            setPlayedQuizIds(prev => [...prev, quiz.id])
+
+            const rawChoices = [
+                { text: quiz.choice_1, isCorrect: true },
+                { text: quiz.choice_2, isCorrect: false },
+                { text: quiz.choice_3, isCorrect: false },
+                { text: quiz.choice_4, isCorrect: false },
+            ].filter(c => c.text !== null && c.text !== "")
+
+            const shuffled = rawChoices
+                .map((value, index) => ({ value, sort: Math.random(), originalIndex: index }))
+                .sort((a, b) => a.sort - b.sort)
+                .map(({ value, originalIndex }) => ({ ...value, originalIndex }))
+
+            setChoices(shuffled)
+} catch (err: any) {
+            console.error("Fetch Error Details:", err);
+            
+            // 【判定を強化】
+            // 接続エラー、住所不明、または特定のステータスコードが出たら
+            // すべて「サーバーが寝ている可能性」として扱い、コーヒー画面へ誘導します。
+            const isNetworkError = err.message?.includes('fetch') || 
+                                   err.name === 'TypeError' || 
+                                   err.code === 'PGRST301' ||
+                                   !err.status; // ステータスがない（通信が確立できていない）場合
+
+            if (isNetworkError) {
+                setErrorType("paused")
+            } else {
+                setErrorType("other")
+            }
+        } finally {
+            setLoading(false)
+        }
+    }, [playedQuizIds])
+
+    useEffect(() => {
+        fetchNewQuestion()
+    }, [])
+
+    // --- 省略（handleAnswer, handleFinish などのロジックは前回と同じ） ---
+    const handleAnswer = () => {
+        if (selectedChoiceIndex === null || isAnswered) return
+        setIsAnswered(true)
+        const isCorrect = choices[selectedChoiceIndex].isCorrect
+        setStats(prev => ({
+            total: prev.total + 1,
+            correct: isCorrect ? prev.correct + 1 : prev.correct
+        }))
+    }
+
+    const handleFinish = () => {
+        const query = new URLSearchParams({
+            correct: stats.correct.toString(),
+            total: stats.total.toString()
+        }).toString()
+        router.push(`/result?${query}`)
+    }
+
+    // --- 表示ロジック（エラー画面の追加） ---
+
+    // 1. サーバーがおやすみ中の表示（改造版）
+if (errorType === "paused") {
+        const handleWakeUp = async () => {
+            setLoading(true);
+            try {
+                await fetch('/api/wake', { method: 'POST' });
+                // 通知は出さず、画面上の表示を切り替えることで「進行中」を伝えます
+            } catch (err) {
+                alert("うまく起こせませんでした。少し時間をおいて試してください。");
+                setLoading(false);
+            }
+        };
+
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-background text-center">
+                <div className="bg-amber-100 p-6 rounded-full mb-6">
+                    <Coffee className={cn("w-16 h-16 text-amber-600", loading && "animate-bounce")} />
+                </div>
+                
+                <h2 className="text-2xl font-bold mb-4">
+                    {loading ? "サーバーを起こしています..." : "サーバーがまだ寝ています"}
+                </h2>
+                
+                <p className="text-subtle mb-8 max-w-sm">
+                    {loading 
+                        ? "2分くらいで起きるから、ちょっと待っててね。準備ができたら下のボタンを押してね。" 
+                        : "下のボタンを1回だけ押してね。2分くらいでクイズができるようになるよ。"}
+                </p>
+
+                <div className="flex flex-col gap-4 w-full max-w-xs">
+                    {!loading ? (
+                        <Button size="xl" onClick={handleWakeUp} className="w-full shadow-lg shadow-amber-200">
+                            サーバーを起こす
+                        </Button>
+                    ) : (
+                        // 起こしている最中に表示される「確認（リロード）」ボタン
+                        <Button 
+                            size="xl" 
+                            variant="secondary" 
+                            onClick={() => window.location.reload()} 
+                            className="w-full border-2 border-primary"
+                        >
+                            準備ができたか確認する
+                        </Button>
+                    )}
+                </div>
+            </div>
+        );
+    }
+
+    // 2. その他のエラー表示
+    if (errorType === "other") {
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-background text-center">
+                <div className="bg-red-100 p-6 rounded-full mb-6">
+                    <AlertCircle className="w-16 h-16 text-red-600" />
+                </div>
+                <h2 className="text-2xl font-bold mb-4">通信エラーが発生しました</h2>
+                <p className="text-subtle mb-8">
+                    インターネットの接続を確認して、もう一度試してみてください。
+                </p>
+                <Button size="xl" onClick={() => window.location.reload()} className="px-12">
+                    もう一度試す
+                </Button>
+            </div>
+        )
+    }
+
+    // 3. 全問クリア表示
+    if (isOutOfQuestions) {
+        return (
+            <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-background text-center">
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="mb-6 bg-primary/10 p-6 rounded-full">
+                    <Trophy className="w-16 h-16 text-primary" />
+                </motion.div>
+                <h2 className="text-2xl font-bold mb-2">全問クリア！</h2>
+                <p className="text-subtle mb-8">現在公開されているすべての問題を解き終えました。</p>
+                <Button size="xl" onClick={handleFinish} className="px-12 shadow-lg shadow-primary/20">
+                    結果を見る
+                </Button>
+            </div>
+        )
+    }
+
+    if (loading && !currentQuiz) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-background">
+                <Loader2 className="w-12 h-12 animate-spin text-primary" />
+            </div>
+        )
+    }
+
+    if (!currentQuiz) return null
+
+    return (
+        <div className="min-h-screen flex flex-col items-center p-4 md:p-8 bg-background">
+            <div className="w-full max-w-2xl flex justify-between items-center mb-6 text-subtle font-medium">
+                <div>問 {stats.total + 1}</div>
+                <div>スコア: {stats.correct} / {stats.total}</div>
+                <Button variant="ghost" size="sm" onClick={handleFinish} className="text-subtle hover:text-foreground">
+                    <Flag className="w-4 h-4 mr-2" />
+                    終了
+                </Button>
+            </div>
+
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={currentQuiz.id + stats.total}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="w-full max-w-2xl"
+                >
+                    <Card className="border-none shadow-lg">
+                        <CardHeader>
+                            <CardTitle className="text-xl md:text-2xl leading-relaxed text-foreground">
+                                {currentQuiz.question_text}
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-3">
+                            {choices.map((choice, index) => {
+                                const isSelected = selectedChoiceIndex === index
+                                let variant: "outline" | "primary" | "ghost" | "danger" | "secondary" = "outline"
+
+                                if (isAnswered) {
+                                    if (choice.isCorrect) variant = "primary"
+                                    else if (isSelected && !choice.isCorrect) variant = "danger"
+                                    else variant = "ghost"
+                                } else if (isSelected) {
+                                    variant = "primary"
+                                }
+
+                                return (
+                                    <Button
+                                        key={index}
+                                        variant={variant}
+                                        size="lg"
+                                        className={cn(
+                                            "w-full justify-start h-auto py-4 text-left whitespace-normal",
+                                            isAnswered && !choice.isCorrect && !isSelected && "opacity-50"
+                                        )}
+                                        onClick={() => !isAnswered && setSelectedChoiceIndex(index)}
+                                        disabled={isAnswered}
+                                    >
+                                        <span className="mr-4 font-bold opacity-50">
+                                            {String.fromCharCode(65 + index)}
+                                        </span>
+                                        {choice.text}
+                                        {isAnswered && choice.isCorrect && (
+                                            <CheckCircle2 className="ml-auto w-6 h-6 text-white" />
+                                        )}
+                                        {isAnswered && isSelected && !choice.isCorrect && (
+                                            <XCircle className="ml-auto w-6 h-6 text-white" />
+                                        )}
+                                    </Button>
+                                )
+                            })}
+                        </CardContent>
+
+                        <CardFooter className="flex flex-col gap-4 pt-4 border-t border-subtle/10">
+                            {isAnswered && (
+                                <div className="w-full space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
+                                    <div className="bg-subtle/5 p-4 rounded-xl">
+                                        <p className="font-bold text-sm text-subtle mb-1">解説</p>
+                                        <p className="text-foreground">{currentQuiz.explanation}</p>
+                                    </div>
+                                    <div className="flex gap-3">
+                                        <Button variant="secondary" className="flex-1" onClick={handleFinish}>
+                                            終了する
+                                        </Button>
+                                        <Button size="lg" className="flex-[2]" onClick={fetchNewQuestion}>
+                                            次の問題へ <ArrowRight className="ml-2 w-5 h-5" />
+                                        </Button>
+                                    </div>
+                                </div>
+                            )}
+                            {!isAnswered && (
+                                <Button
+                                    size="lg"
+                                    className="w-full"
+                                    disabled={selectedChoiceIndex === null}
+                                    onClick={handleAnswer}
+                                >
+                                    回答する
+                                </Button>
+                            )}
+                        </CardFooter>
+                    </Card>
+                </motion.div>
+            </AnimatePresence>
+        </div>
+    )
+}
+
+
+
+====================
+FILE: \src\app\result\page.tsx
+====================
+
+"use client"
+
+import { useSearchParams } from "next/navigation"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/Button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
+import { Trophy, RefreshCw, Home } from "lucide-react"
+import { Suspense } from "react"
+
+function ResultContent() {
+    const searchParams = useSearchParams()
+    const correct = Number(searchParams.get("correct") || "0")
+    const total = Number(searchParams.get("total") || "0")
+
+    const percentage = total > 0 ? Math.round((correct / total) * 100) : 0
+
+    let message = "お疲れ様でした！"
+    let color = "text-foreground"
+
+    if (percentage === 100 && total > 0) {
+        message = "完璧です！素晴らしい！"
+        color = "text-yellow-500"
+    } else if (percentage >= 80) {
+        message = "素晴らしい成績です！"
+        color = "text-primary"
+    } else if (percentage >= 60) {
+        message = "良い調子です！"
+        color = "text-accent"
+    } else {
+        message = "次はもっと行けるはず！"
+        color = "text-subtle"
+    }
+
+    return (
+        <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+            <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-full max-w-md"
+            >
+                <Card className="text-center border-none shadow-2xl">
+                    <CardHeader className="pt-12">
+                        <motion.div
+                            initial={{ rotate: -180, scale: 0 }}
+                            animate={{ rotate: 0, scale: 1 }}
+                            transition={{ delay: 0.3, type: "spring" }}
+                            className="mx-auto bg-primary/10 p-6 rounded-full inline-flex mb-4"
+                        >
+                            <Trophy className="w-16 h-16 text-yellow-500" />
+                        </motion.div>
+                        <CardTitle className="text-3xl font-bold">結果発表</CardTitle>
+                    </CardHeader>
+
+                    <CardContent className="space-y-8 pb-12">
+                        <div>
+                            <p className="text-sm text-subtle uppercase tracking-wider mb-2">SCORE</p>
+                            <div className="flex justify-center items-end gap-2 text-foreground">
+                                <span className="text-6xl font-black tracking-tighter">
+                                    {percentage}
+                                </span>
+                                <span className="text-2xl font-bold mb-2">%</span>
+                            </div>
+                            <p className="text-subtle mt-2 font-medium">
+                                {total}問中 {correct}問正解
+                            </p>
+                        </div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 }}
+                            className={`text-xl font-bold ${color}`}
+                        >
+                            {message}
+                        </motion.div>
+
+                        <div className="flex flex-col gap-3">
+                            <Link href="/quiz" className="w-full">
+                                <Button size="lg" className="w-full h-14 text-lg">
+                                    <RefreshCw className="mr-2 w-5 h-5" />
+                                    もう一度挑戦
+                                </Button>
+                            </Link>
+                            <Link href="/" className="w-full">
+                                <Button variant="ghost" size="lg" className="w-full">
+                                    <Home className="mr-2 w-5 h-5" />
+                                    トップに戻る
+                                </Button>
+                            </Link>
+                        </div>
+                    </CardContent>
+                </Card>
+            </motion.div>
+        </div>
+    )
+}
+
+export default function ResultPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-background" />}>
+            <ResultContent />
+        </Suspense>
+    )
+}
+
+
+
+
+====================
+FILE: \src\components\ui\Button.tsx
+====================
+
+"use client"
+
+import * as React from "react"
+import { motion, HTMLMotionProps } from "framer-motion"
+import { cn } from "@/lib/utils"
+
+interface ButtonProps extends HTMLMotionProps<"button"> {
+    variant?: "primary" | "secondary" | "outline" | "ghost" | "danger"
+    size?: "sm" | "md" | "lg" | "xl"
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ className, variant = "primary", size = "md", children, ...props }, ref) => {
+
+        const variants = {
+            primary: "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/25 border-b-4 border-primary/50 active:border-b-0 active:translate-y-[4px]",
+            secondary: "bg-card text-card-foreground border border-subtle/20 hover:bg-subtle/10",
+            outline: "border-2 border-primary text-primary hover:bg-primary/10",
+            ghost: "text-foreground hover:bg-subtle/10",
+            danger: "bg-red-500 text-white hover:bg-red-600 shadow-lg shadow-red-500/25",
+        }
+
+        const sizes = {
+            sm: "h-9 px-3 text-sm",
+            md: "h-11 px-6 text-base",
+            lg: "h-14 px-8 text-lg",
+            xl: "h-16 px-10 text-xl font-bold",
+        }
+
+        // Modern "Premium" feel:
+        // - Press effect (scale down slightly)
+        // - Smooth transition
+
+        return (
+            <motion.button
+                ref={ref}
+                whileTap={{ scale: 0.96 }}
+                className={cn(
+                    "inline-flex items-center justify-center rounded-xl font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50",
+                    variants[variant],
+                    sizes[size],
+                    className
+                )}
+                {...props}
+            >
+                {children}
+            </motion.button>
+        )
+    }
+)
+Button.displayName = "Button"
+
+export { Button }
+
+
+
+
+====================
+FILE: \src\components\ui\Card.tsx
+====================
+
+import * as React from "react"
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        className={cn(
+            "rounded-3xl border border-subtle/10 bg-card text-card-foreground shadow-xl shadow-black/5 decoration-clone",
+            className
+        )}
+        {...props}
+    />
+))
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        className={cn("flex flex-col space-y-1.5 p-6", className)}
+        {...props}
+    />
+))
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<
+    HTMLParagraphElement,
+    React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+    <h3
+        ref={ref}
+        className={cn(
+            "font-semibold leading-none tracking-tight text-xl md:text-2xl text-primary",
+            className
+        )}
+        {...props}
+    />
+))
+CardTitle.displayName = "CardTitle"
+
+const CardContent = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        className={cn("flex items-center p-6 pt-0", className)}
+        {...props}
+    />
+))
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardContent }
+
+
+
+
+====================
+FILE: \src\lib\mockData.ts
+====================
+
+import { Database } from '@/types/supabase'
+
+type Quiz = Database['public']['Tables']['quizzes']['Row']
+
+export const mockQuizzes: Quiz[] = [
+    {
+        id: '1',
+        question_text: '日本の首都はどこですか？',
+        choice_1: '東京',
+        choice_2: '大阪',
+        choice_3: '京都',
+        choice_4: '福岡',
+        explanation: '現在の日本の首都は東京です。',
+        is_published: true,
+    },
+    {
+        id: '2',
+        question_text: '次のうち、一般的にプログラミング言語として分類されないものはどれですか？',
+        choice_1: 'HTML',
+        choice_2: 'Python',
+        choice_3: 'JavaScript',
+        choice_4: 'Ruby',
+        explanation: 'HTMLはマークアップ言語であり、ロジックを記述するプログラミング言語とは区別されることがあります。',
+        is_published: true,
+    },
+    {
+        id: '3',
+        question_text: '空が青い主な理由は何ですか？',
+        choice_1: 'レイリー散乱',
+        choice_2: 'ミー散乱',
+        choice_3: 'ドップラー効果',
+        choice_4: 'チンダル現象',
+        explanation: '太陽光が大気中の分子に衝突し、波長の短い青い光が散乱するためです（レイリー散乱）。',
+        is_published: true,
+    },
+    {
+        id: '4',
+        question_text: '次のうち、偶数はどれですか？',
+        choice_1: '2',
+        choice_2: '1',
+        choice_3: '3',
+        choice_4: '5',
+        explanation: '2は2で割り切れるため偶数です。',
+        is_published: true,
+    },
+    {
+        id: '5',
+        question_text: '日本で一番高い山は？',
+        choice_1: '富士山',
+        choice_2: '北岳',
+        choice_3: '奥穂高岳',
+        choice_4: '間ノ岳',
+        explanation: '富士山は標高3,776mで日本最高峰です。',
+        is_published: true,
+    },
+    {
+        id: '6',
+        question_text: '世界で最も話されている言語は？',
+        choice_1: '英語',
+        choice_2: '中国語',
+        choice_3: 'スペイン語',
+        choice_4: 'ヒンディー語',
+        explanation: 'ネイティブスピーカー数と非ネイティブを合わせると英語が最多です。',
+        is_published: true,
+    }
+]
+
+
+
+
+====================
+FILE: \src\lib\supabase.ts
+====================
+
+import { createBrowserClient } from '@supabase/ssr'
+import { Database } from '@/types/supabase'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+// ブラウザ（クライアント）側でクイズを読み書きするためのクライアント
+export const supabase = createBrowserClient<Database>(
+    supabaseUrl,
+    supabaseAnonKey
+)
+
+
+
+====================
+FILE: \src\lib\utils.ts
+====================
+
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs))
+}
+
+
+
+
+====================
+FILE: \src\types\supabase.ts
+====================
+
+export type Json =
+    | string
+    | number
+    | boolean
+    | null
+    | { [key: string]: Json | undefined }
+    | Json[]
+
+export interface Database {
+    public: {
+        Tables: {
+            quizzes: {
+                Row: {
+                    id: string
+                    question_text: string
+                    choice_1: string
+                    choice_2: string
+                    choice_3: string
+                    choice_4: string
+                    explanation: string
+                    is_published: boolean
+                    created_at?: string
+                }
+                Insert: {
+                    id?: string
+                    question_text: string
+                    choice_1: string
+                    choice_2?: string
+                    choice_3?: string
+                    choice_4?: string
+                    explanation: string
+                    is_published?: boolean
+                    created_at?: string
+                }
+                Update: {
+                    id?: string
+                    question_text?: string
+                    choice_1?: string
+                    choice_2?: string
+                    choice_3?: string
+                    choice_4?: string
+                    explanation?: string
+                    is_published?: boolean
+                    created_at?: string
+                }
+            }
+        }
+    }
+}
+
+
+
+
