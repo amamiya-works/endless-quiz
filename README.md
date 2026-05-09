@@ -11,9 +11,9 @@
 
 **Live Demo:** https://endless-quiz-portfolio.vercel.app
 
-| ロール | メールアドレス | パスワード |
-| :--- | :--- | :--- |
-| 管理者 | demo@example.com | demo1234 |
+| ロール | メールアドレス   | パスワード |
+| :----- | :--------------- | :--------- |
+| 管理者 | demo@example.com | demo1234   |
 
 ---
 
@@ -44,14 +44,14 @@
 
 ## 技術スタック
 
-| 区分 | 技術 | 選定理由 |
-| :--- | :--- | :--- |
-| Frontend | Next.js 16 (App Router) | RSCによる初期表示の高速化 |
-| Database | Supabase (PostgreSQL) | RLSによる堅牢なアクセス制御とスケーラビリティ |
-| Auth | Supabase Auth / SSR | Cookieベースのセキュアな認証。SSR側との完全同期 |
-| Styling | Tailwind CSS v4 | 最新エンジンの高速ビルドとCSS-firstな柔軟な設計 |
-| Animation | Framer Motion | 状態変化に合わせた心地よいUI演出の実装 |
-| Infra | Vercel / GitHub | 環境変数による本番・展示用の完全分離運用 |
+| 区分      | 技術                    | 選定理由                                        |
+| :-------- | :---------------------- | :---------------------------------------------- |
+| Frontend  | Next.js 16 (App Router) | RSCによる初期表示の高速化                       |
+| Database  | Supabase (PostgreSQL)   | RLSによる堅牢なアクセス制御とスケーラビリティ   |
+| Auth      | Supabase Auth / SSR     | Cookieベースのセキュアな認証。SSR側との完全同期 |
+| Styling   | Tailwind CSS v4         | 最新エンジンの高速ビルドとCSS-firstな柔軟な設計 |
+| Animation | Framer Motion           | 状態変化に合わせた心地よいUI演出の実装          |
+| Infra     | Vercel / GitHub         | 環境変数による本番・展示用の完全分離運用        |
 
 ---
 
@@ -85,19 +85,19 @@ Vercel側から秘密のトークンを用いてSupabase Management APIを叩く
 
 **セキュリティ修正**
 
-| 対象 | 修正内容 |
-| :--- | :--- |
-| `api/wake/route.ts` | Wake APIに `CRON_SECRET` による簡易認証を追加。第三者によるSupabase Management API無制限呼び出しを防止 |
-| `middleware.ts` | 認証確認を `getSession()` から `getUser()` に変更。エッジ環境でのセッション改ざん・なりすましに対して堅牢化 |
-| `lib/supabase.ts` | 環境変数の未設定時に原因が明確なエラーを出す明示的チェックを追加 |
+| 対象                | 修正内容                                                                                                    |
+| :------------------ | :---------------------------------------------------------------------------------------------------------- |
+| `api/wake/route.ts` | Wake APIに `CRON_SECRET` による簡易認証を追加。第三者によるSupabase Management API無制限呼び出しを防止      |
+| `middleware.ts`     | 認証確認を `getSession()` から `getUser()` に変更。エッジ環境でのセッション改ざん・なりすましに対して堅牢化 |
+| `lib/supabase.ts`   | 環境変数の未設定時に原因が明確なエラーを出す明示的チェックを追加                                            |
 
 **コード整理**
 
-| 対象 | 修正内容 |
-| :--- | :--- |
-| `lib/mockData.ts` | デッドコードを削除。誤用・情報漏洩リスクを排除 |
-| `app/quiz/page.tsx` | エラー判定ロジックの条件を整理し、サーバー休止の誤検知を低減 |
-| `next.config.ts` | `poweredByHeader: false` を追加。使用技術の不要な外部開示を防止 |
+| 対象                | 修正内容                                                        |
+| :------------------ | :-------------------------------------------------------------- |
+| `lib/mockData.ts`   | デッドコードを削除。誤用・情報漏洩リスクを排除                  |
+| `app/quiz/page.tsx` | エラー判定ロジックの条件を整理し、サーバー休止の誤検知を低減    |
+| `next.config.ts`    | `poweredByHeader: false` を追加。使用技術の不要な外部開示を防止 |
 
 ---
 
@@ -105,11 +105,11 @@ Vercel側から秘密のトークンを用いてSupabase Management APIを叩く
 
 設計・開発フェーズで LLM（主に Claude）を以下の用途で使用した。
 
-| 用途 | 具体的な内容 |
-| :--- | :--- |
-| 設計レビュー | 認証とMiddlewareの同期ロジックにおけるエッジケースの洗い出し |
-| コードレビュー | セキュリティ問題・未使用コードの洗い出しと修正方針の確認 |
-| 高速プロトタイピング | ランダム出題アルゴリズムの初案生成と最適化 |
+| 用途                 | 具体的な内容                                                 |
+| :------------------- | :----------------------------------------------------------- |
+| 設計レビュー         | 認証とMiddlewareの同期ロジックにおけるエッジケースの洗い出し |
+| コードレビュー       | セキュリティ問題・未使用コードの洗い出しと修正方針の確認     |
+| 高速プロトタイピング | ランダム出題アルゴリズムの初案生成と最適化                   |
 
 コードの自動生成には留まらず、意思決定の高速化と見落としの防止が主な活用目的。
 実装・デバッグ・本番確認はすべて自分で実施している。
@@ -128,11 +128,58 @@ npm run dev
 
 ### 必要な環境変数
 
-| 変数名 | 説明 |
-| :--- | :--- |
-| `NEXT_PUBLIC_SUPABASE_URL` | SupabaseプロジェクトのURL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabaseの公開キー |
-| `SUPABASE_PROJECT_REF` | SupabaseプロジェクトのRef ID |
-| `SUPABASE_ACCESS_TOKEN` | Supabase Management APIトークン |
-| `CRON_SECRET` | Wake APIの簡易認証トークン |
-| `NEXT_PUBLIC_CRON_SECRET` | フロントエンドからWake APIを叩くためのトークン |
+| 変数名                          | 説明                                           |
+| :------------------------------ | :--------------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`      | SupabaseプロジェクトのURL                      |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabaseの公開キー                             |
+| `SUPABASE_PROJECT_REF`          | SupabaseプロジェクトのRef ID                   |
+| `SUPABASE_ACCESS_TOKEN`         | Supabase Management APIトークン                |
+| `CRON_SECRET`                   | Wake APIの簡易認証トークン                     |
+| `NEXT_PUBLIC_CRON_SECRET`       | フロントエンドからWake APIを叩くためのトークン |
+
+---
+
+## English Summary
+
+# Endless Quiz
+
+A serverless full-stack quiz platform. Zero operating cost, designed to run indefinitely.
+
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-Database%2FAuth-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel)](https://vercel.com/)
+
+**Live Demo:** https://endless-quiz-portfolio.vercel.app
+
+| Role  | Email            | Password |
+| :---- | :--------------- | :------- |
+| Admin | demo@example.com | demo1234 |
+
+---
+
+## Overview
+
+Rather than treating the free-tier database suspension as a limitation, this project turns it into a feature. When the server is asleep, users see a "wake the server" button instead of a generic error — keeping the experience intact without any developer intervention.
+
+The goal: zero operational cost for the developer, zero confusion for the user.
+
+---
+
+## Notable Implementation
+
+- **Server sleep detection.** Analyzes connection errors to distinguish suspension from actual failures. A coffee-icon button lets users wake Supabase on demand via Management API, authenticated with a secret token from Vercel.
+- **Auth hardened against tampering.** Middleware uses `getUser()` instead of `getSession()`, enforcing a server-side verification on every request to prevent session forgery in edge environments.
+- **1 repo, 2 databases.** Production and portfolio environments are fully separated via Vercel environment variables — same codebase, isolated data.
+
+---
+
+## Tech Stack
+
+| Layer           | Technology                  |
+| :-------------- | :-------------------------- |
+| Frontend        | Next.js 16 (App Router)     |
+| Database / Auth | Supabase (PostgreSQL + RLS) |
+| Styling         | Tailwind CSS v4             |
+| Infra           | Vercel / GitHub             |
